@@ -7,7 +7,7 @@
     {
     public GameObject MainScreen;
     public GameObject Library;
-    public GameObject Geography;
+    public GameObject Geography, Biology, Chemistry, Physics;
     public GameObject Saved;
     public GameObject DownloadButton;
     public Text PageCounter;
@@ -76,16 +76,16 @@
         yield return null;
     }
 
-    public void ToGeography()
+    public void ToSubject(GameObject subject)
     {
         ScrnTransition.inst.FadeOut();
-        ScrnTransition.inst.EnqueueEvent(ToGeographyEvent());
+        ScrnTransition.inst.EnqueueEvent(ToSubjectEvent(subject));
         ScrnTransition.inst.FadeIn();
     }
-    IEnumerator ToGeographyEvent()
+    IEnumerator ToSubjectEvent(GameObject subject)
     {
         Library.SetActive(false);
-        Geography.SetActive(true);
+        subject.SetActive(true);
         yield return null;
     }
 
@@ -135,6 +135,9 @@
     IEnumerator ToLibraryFromGeographyEvent()
     {
         Geography.SetActive(false);
+        Biology.SetActive(false);
+        Chemistry.SetActive(false);
+        Physics.SetActive(false);
         Library.SetActive(true);
         yield return null;
     }
@@ -160,6 +163,9 @@
     IEnumerator ToMainFromGeographyEvent()
     {
         Geography.SetActive(false);
+        Biology.SetActive(false);
+        Chemistry.SetActive(false);
+        Physics.SetActive(false);
         DownloadButton.SetActive(false);
         MainScreen.SetActive(true);
         IsLocalSimulation = true;
