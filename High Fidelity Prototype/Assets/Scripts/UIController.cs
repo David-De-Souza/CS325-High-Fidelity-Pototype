@@ -10,12 +10,12 @@ public class UIController : MonoBehaviour
     public GameObject Geography;
     public GameObject Saved;
     public GameObject DownloadButton;
+    public Renderer CurrentModel;
     public Text PageCounter;
     public Text Description;
-    public Image CurrentModel;
     public Button LibraryButton;
 
-    public Sprite[] Models;
+    public Texture2D[] Models;
     public Sprite BackSprite;
     public Sprite LibrarySprite;
 
@@ -40,17 +40,17 @@ public class UIController : MonoBehaviour
     {
         if (page_number == 1)
         {
-            CurrentModel.sprite = Models[0];
+            CurrentModel.material.mainTexture = Models[0];
             Description.text = "An oxbow lake starts out as a curve, or meander, in a river.\nA lake forms as the river finds a different, shorter, course.\nThe meander becomes an oxbow lake along the side of the river.\n\nOxbow lakes usually form in flat, low - lying plains close to\nwhere the river empties into another body of water.\nOn these plains, rivers often have wide meanders.";
         }
         else if (page_number == 2)
         {
-            CurrentModel.sprite = Models[1];
+            CurrentModel.material.mainTexture = Models[1];
             Description.text = "During a flood, the rapid flow of high water\nmight cut a new channel across the meander.";
         }
         else if (page_number == 3)
         {
-            CurrentModel.sprite = Models[2];
+            CurrentModel.material.mainTexture = Models[2];
             Description.text = "As sediment is deposited along the edges of the\nnew channel, the former meander might be\nisolated from the river and form an oxbow lake.";
         }
     }
